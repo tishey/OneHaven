@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:onehaven_assessment/presentation/view/login_screen.dart';
 import 'package:onehaven_assessment/presentation/view/splash_screen.dart';
+import 'package:onehaven_assessment/presentation/widget/internetwrapper.dart';
 import 'package:onehaven_assessment/service/hive_service.dart';
 
 void main() async {
@@ -19,6 +19,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'OneHaven',
         debugShowCheckedModeBanner: false,
+        builder: (context, widgetChild) {
+          return InternetConnectionWrapper(
+            child: widgetChild ?? const SizedBox(),
+          );
+        },
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.blue,
@@ -32,7 +37,6 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
           useMaterial3: true,
-          fontFamily: 'Inter',
         ),
         home: SplashScreen(),
       ),

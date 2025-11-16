@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onehaven_assessment/presentation/view/dashboard_screen.dart';
 import 'package:onehaven_assessment/presentation/widget/textfield.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onehaven_assessment/provider/provider.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -18,17 +16,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     final isAuthenticated = ref.read(authStateProvider).value ?? false;
-  //     if (isAuthenticated) {
-  //       _navigateToDashboard();
-  //     }
-  //   });
-  // }
 
   void _navigateToDashboard() {
     Navigator.pushReplacement(

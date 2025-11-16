@@ -45,10 +45,7 @@ class HiveService {
   ) async {
     try {
       final box = Hive.box(membersBox);
-      final list =
-          (box.get('members') as List<dynamic>?)
-              ?.cast<Map<String, dynamic>>() ??
-          [];
+      final list = (box.get('members') as List<dynamic>?) ?? [];
       final index = list.indexWhere((m) => m['id'] == id);
 
       if (index >= 0) {
