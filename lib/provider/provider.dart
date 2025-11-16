@@ -58,7 +58,7 @@ class MembersNotifier extends StateNotifier<AsyncValue<List<Member>>> {
     try {
       await _repository.toggleScreenTime(member, enabled);
 
-      await loadMembers();
+      // await loadMembers();
     } catch (e) {
       state = currentState;
       rethrow;

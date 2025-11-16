@@ -19,16 +19,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final isAuthenticated = ref.read(authStateProvider).value ?? false;
-      if (isAuthenticated) {
-        _navigateToDashboard();
-      }
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     final isAuthenticated = ref.read(authStateProvider).value ?? false;
+  //     if (isAuthenticated) {
+  //       _navigateToDashboard();
+  //     }
+  //   });
+  // }
 
   void _navigateToDashboard() {
     Navigator.pushReplacement(
@@ -69,10 +69,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('OneHaven Caregiver'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Form(
@@ -127,18 +123,35 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               SizedBox(
                 width: double.infinity,
                 height: 50,
-                child: ElevatedButton(
-                  onPressed: _isLoading ? null : _login,
-                  child: _isLoading
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
+                child: GestureDetector(
+                  onTap: _isLoading ? null : _login,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Theme.of(context).primaryColor,
+                    ),
+
+                    child: _isLoading
+                        ? const SizedBox(
+                            width: 10,
+                            height: 10,
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )
+                        : Center(
+                            child: const Text(
+                              'Sign In',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
-                        )
-                      : const Text('Sign In', style: TextStyle(fontSize: 16)),
+                  ),
                 ),
               ),
               const SizedBox(height: 16),

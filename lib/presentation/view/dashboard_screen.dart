@@ -6,6 +6,7 @@ import 'package:onehaven_assessment/data/model/member.dart';
 import 'package:onehaven_assessment/presentation/view/login_screen.dart';
 import 'package:onehaven_assessment/presentation/view/member_screen.dart';
 import 'package:onehaven_assessment/presentation/widget/member_tile.dart';
+import 'package:onehaven_assessment/presentation/widget/shimmer_loader.dart';
 import 'package:onehaven_assessment/provider/provider.dart';
 
 class DashboardScreen extends ConsumerWidget {
@@ -21,12 +22,7 @@ class DashboardScreen extends ConsumerWidget {
         title: const Text('Protected Members'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.sync),
-            onPressed: () => membersNotifier.syncChanges(),
-            tooltip: 'Sync changes',
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout),
+            icon: Text('Logout', style: TextStyle(color: Colors.red)),
             onPressed: () {
               ref.read(authStateProvider.notifier).logout();
               Navigator.pushReplacement(
@@ -111,16 +107,7 @@ class DashboardScreen extends ConsumerWidget {
   }
 
   Widget _buildLoadingState() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircularProgressIndicator(),
-          SizedBox(height: 16),
-          Text('Loading members...'),
-        ],
-      ),
-    );
+    return ShimmerList();
   }
 
   Widget _buildErrorState(context, Object error, MembersNotifier notifier) {

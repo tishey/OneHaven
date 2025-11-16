@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onehaven_assessment/presentation/view/login_screen.dart';
+import 'package:onehaven_assessment/presentation/view/splash_screen.dart';
 import 'package:onehaven_assessment/service/hive_service.dart';
 
 void main() async {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return ProviderScope(
       child: MaterialApp(
         title: 'OneHaven',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.blue,
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           fontFamily: 'Inter',
         ),
-        home: LoginScreen(),
+        home: SplashScreen(),
       ),
     );
   }

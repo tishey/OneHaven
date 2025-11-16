@@ -20,15 +20,12 @@ class MemberItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-      child: ListTile(
-        onTap: onTap,
-        leading: CircleAvatar(backgroundImage: NetworkImage(avatar)),
-        title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Text(subtitle),
-        trailing: Switch(value: toggleValue, onChanged: onToggle),
-      ),
+    return ListTile(
+      onTap: onTap,
+      leading: CircleAvatar(backgroundImage: NetworkImage(avatar)),
+      title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+      subtitle: Text(subtitle),
+      trailing: Switch(value: toggleValue, onChanged: onToggle),
     );
   }
 }
