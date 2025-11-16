@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:onehaven_assessment/data/model/member.dart';
+import 'package:onehaven_assessment/presentation/view/login_screen.dart';
 import 'package:onehaven_assessment/presentation/view/member_screen.dart';
 import 'package:onehaven_assessment/presentation/widget/member_tile.dart';
 import 'package:onehaven_assessment/provider/provider.dart';
@@ -28,7 +29,10 @@ class DashboardScreen extends ConsumerWidget {
             icon: const Icon(Icons.logout),
             onPressed: () {
               ref.read(authStateProvider.notifier).logout();
-              Navigator.pushReplacementNamed(context, '/login');
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
             },
             tooltip: 'Logout',
           ),

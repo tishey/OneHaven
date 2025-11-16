@@ -22,7 +22,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    // Check if user is already logged in
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final isAuthenticated = ref.read(authStateProvider).value ?? false;
       if (isAuthenticated) {
@@ -81,8 +80,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.health_and_safety, size: 80, color: Colors.blue),
-              const SizedBox(height: 32),
               Text(
                 'Welcome Back',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(

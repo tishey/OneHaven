@@ -21,7 +21,7 @@ class MemberDetailsScreen extends StatelessWidget {
             const SizedBox(height: 24),
             _buildNameSection(),
             const SizedBox(height: 24),
-            _buildDetailsCard(),
+            _buildDetailsCard(context),
           ],
         ),
       ),
@@ -68,19 +68,28 @@ class MemberDetailsScreen extends StatelessWidget {
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
-        Chip(
-          label: Text(
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: Colors.black,
+          ),
+          child: Text(
             member.relationship,
             style: const TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.blue,
         ),
       ],
     );
   }
 
-  Widget _buildDetailsCard() {
-    return Card(
+  Widget _buildDetailsCard(context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Theme.of(context).primaryColor,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -109,14 +118,14 @@ class MemberDetailsScreen extends StatelessWidget {
             label,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
-              color: Colors.grey,
+              color: Colors.lightBlueAccent,
             ),
           ),
           Text(
             value,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: valueColor ?? Colors.black,
+              color: valueColor ?? Colors.white,
             ),
           ),
         ],

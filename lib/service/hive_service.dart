@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HiveService {
@@ -8,23 +10,21 @@ class HiveService {
   static Future<void> init() async {
     await Hive.initFlutter();
 
-    // Register adapters if using HiveObjects
     // Hive.registerAdapter(MemberAdapter());
 
     await Hive.openBox(membersBox);
     await Hive.openBox(queueBox);
     await Hive.openBox(authBox);
 
-    print('Hive initialized successfully');
+    log('Hive initialized successfully');
   }
 
-  // Members cache operations
   static List<dynamic>? loadMembers() {
     try {
       final box = Hive.box(membersBox);
       return box.get('members') as List<dynamic>?;
     } catch (e) {
-      print('Error loading members from Hive: $e');
+      log('Error loading members from Hive: $e');
       return null;
     }
   }
@@ -34,7 +34,7 @@ class HiveService {
       final box = Hive.box(membersBox);
       await box.put('members', members);
     } catch (e) {
-      print('Error saving members to Hive: $e');
+      log('Error saving members to Hive: $e');
       rethrow;
     }
   }
@@ -64,7 +64,6 @@ class HiveService {
     }
   }
 
-  // Sync queue operations
   static List<dynamic> loadQueue() {
     try {
       final box = Hive.box(queueBox);
@@ -80,18 +79,17 @@ class HiveService {
       final box = Hive.box(queueBox);
       await box.put('queue', queue);
     } catch (e) {
-      print('Error saving queue to Hive: $e');
+      log('Error saving queue to Hive: $e');
       rethrow;
     }
   }
 
-  // Auth operations
   static Future<void> saveAuthToken(String token) async {
     try {
       final box = Hive.box(authBox);
       await box.put('auth_token', token);
     } catch (e) {
-      print('Error saving auth token: $e');
+      log('Error saving auth token: $e');
       rethrow;
     }
   }
@@ -111,7 +109,7 @@ class HiveService {
       final box = Hive.box(authBox);
       await box.delete('auth_token');
     } catch (e) {
-      print('Error clearing auth: $e');
+      log('Error clearing auth: $e');
       rethrow;
     }
   }
