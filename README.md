@@ -2,7 +2,7 @@
 
 A Flutter application for caregivers to manage protected members with screen time controls, built with Riverpod for state management and featuring offline-first architecture.
 
-## 🚀 Features
+##  Features
 - **Splash Screen** - Introduce the platform
 - **User Authentication** - Mock login and logout
 - **Member Dashboard** - View and manage protected members
@@ -12,19 +12,33 @@ A Flutter application for caregivers to manage protected members with screen tim
 - **Responsive Design** - Works on phones and tablets
 - **Error Handling** - Graceful fallbacks and user-friendly errors
 
-## 🛠 Tech Stack
+##  Tech Stack
 - **Flutter** 3.35.7 - UI Framework
 - **Riverpod** - State Management
 - **Dio** - HTTP Client
 - **Hive** - Local Database
 - **Express.js** - Mock Server
 
-## 📋 Prerequisites
+##  Prerequisites
 - Flutter SDK 3.35.7
 - Node.js 16+
 - Android Studio / Xcode (for emulators)
 
-## 🚀 Quick Start
+
+### AI Usage Summary
+
+# AI Tools Used
+- **ChatGPT** (OpenAI)
+
+### How AI Was Used
+
+#### **Mock Server Implementation**
+- **Used For**: Initial Express.js server setup and API endpoint structure
+- **My Understanding**: I reviewed and understood the server code, modified the endpoints to match my specific data structure, and enhanced error handling
+- **Customization**: Added comprehensive logging, CORS configuration, and customized the mock data to match OneHaven's requirements
+
+
+## Quick Start
 
 ### 1. Clone and Setup Flutter App
 
@@ -77,3 +91,5 @@ Available endpoints:
     status: "active",
     screenTimeEnabled: false
   },]
+
+
