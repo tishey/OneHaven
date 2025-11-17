@@ -35,17 +35,15 @@ class MemberDetailsScreen extends StatelessWidget {
         CircleAvatar(
           radius: 60,
           backgroundImage: NetworkImage(member.avatar),
-          onBackgroundImageError: (exception, stackTrace) {
-            // Handle image error
-          },
-          child: const Icon(Icons.person, size: 50, color: Colors.white),
+          onBackgroundImageError: (exception, stackTrace) {},
         ),
         Positioned(
           bottom: 0,
-          right: 0,
+          right: 10,
           child: Container(
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 2),
               color: member.status == 'active' ? Colors.green : Colors.orange,
               shape: BoxShape.circle,
             ),
