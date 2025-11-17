@@ -1,16 +1,41 @@
-# onehaven_assessment
+# OneHaven App
 
-A new Flutter project.
+A Flutter application for caregivers to manage protected members with screen time controls, built with Riverpod for state management and featuring offline-first architecture.
 
-## Getting Started
+## 🚀 Features
 
-This project is a starting point for a Flutter application.
+- **User Authentication** - Mock login and logout
+- **Member Dashboard** - View and manage protected members
+- **Screen Time Controls** - Toggle screen time restrictions
+- **Offline Support** - Hive-based local caching
+- **Pull-to-Refresh** - Synchronize with server
+- **Responsive Design** - Works on phones and tablets
+- **Error Handling** - Graceful fallbacks and user-friendly errors
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠 Tech Stack
+- **Flutter** 3.35.7 - UI Framework
+- **Riverpod** - State Management
+- **Dio** - HTTP Client
+- **Hive** - Local Database
+- **Express.js** - Mock Server
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📋 Prerequisites
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter SDK 3.35.7
+- Node.js 16+
+- Android Studio / Xcode (for emulators)
+
+## 🚀 Quick Start
+
+### 1. Clone and Setup Flutter App
+
+```bash
+# Clone the repository
+git https://github.com/tishey/OneHaven/tree/master
+
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
