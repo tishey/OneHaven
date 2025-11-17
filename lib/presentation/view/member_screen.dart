@@ -44,7 +44,7 @@ class MemberDetailsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white, width: 2),
-              color: member.status == 'active' ? Colors.green : Colors.orange,
+              color: member.status == 'active' ? Colors.green : Colors.red,
               shape: BoxShape.circle,
             ),
             child: Icon(
